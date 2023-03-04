@@ -1,21 +1,24 @@
 <?php
 
 
+/**
+ * Returns an array of upcoming events from a dataset based on the date column
+ *
+ * @param array $data The dataset to search through
+ * @param string $dateColumn The name of the date column to check against
+ *
+ * @return mixed An array of upcoming events or 0 if no upcoming events found
+ */
+function filterUpcomingEvents(array $data, string $dateColumn) {
+    $upcomingEvents = [];
 
-function getUpcomingEvents($data, $dateColumn)
-{
-    $filteredEvents = [];
     foreach ($data as $event) {
         if (strtotime($event[$dateColumn]) > time()) {
-            array_push($filteredEvents, $event);
+            $upcomingEvents[] = $event;
         }
     }
 
-
-    if (count($filteredEvents) === 0) {
-        return 0;
-    }
-    return $filteredEvents;
+    return count($upcomingEvents) > 0 ? $upcomingEvents : 0;
 }
 
 ?>

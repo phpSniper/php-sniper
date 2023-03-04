@@ -1,19 +1,23 @@
 <?php
 
-
-// search funcion 
-function search($data, $query)
+/**
+ * Check if all characters in the query string are found in the data string.
+ *
+ * @param string $data The string to search within.
+ * @param string $query The query string to search for.
+ * @return bool True if all query characters are found in the data string, false otherwise.
+ */
+function stringContainsQueryChars($data, $query)
 {
     $char = str_split($query);
-    $lenght = sizeof($char) - 1;
+    $length = sizeof($char) - 1;
 
     $n = 0;
     foreach ($char as $c) {
         if (strpos($data, $c) !== false) $n++;
     }
-    return $n >= $lenght ? true : false;
+    return $n >= $length ? true : false;
 }
-
 
 
 

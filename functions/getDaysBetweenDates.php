@@ -1,7 +1,15 @@
 <?php
 
 
-function daysBetweenDates($date1, $date2)
+/**
+ * Calculate the number of days between two dates.
+ *
+ * @param mixed $date1 The first date to compare.
+ * @param mixed $date2 The second date to compare.
+ *
+ * @return int The number of days between the two dates.
+ */
+function getDaysBetweenDates($date1, $date2)
 {
     // Check if the dates are in seconds
     if (!is_numeric($date1)) {

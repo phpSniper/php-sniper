@@ -1,28 +1,27 @@
 <?php
 
 
-
 /**
- * Fetch all rows of data from a table based on the specified condition.
+ * Fetch all rows from a table that match the specified condition.
  *
- * @param string $table The name of the database table.
- * @param string|null $condition The WHERE condition for the query (optional).
+ * @param string $table The name of the table to fetch from.
+ * @param string|null $condition The condition that rows must match (optional).
  * @param string|null $cols The columns to select (optional).
- * @param bool $distinct Whether to use DISTINCT or not (default: false).
- * @param array $params An array of parameters to bind to the prepared statement (optional).
- *
- * @return array An array containing the data and the number of rows fetched.
- * @throws Exception If the query fails to execute.
+ * @param bool $distinct Whether to select distinct rows (optional, default false).
+ * @param string|null $order_by The column to order the results by and the order method (optional).
+ * @return array An array containing the fetched data and the number of rows.
  */
-function fetchAll($table, $condition = null, $cols = null, $distinct = false, $params = [])
+function fetchAll($table, $condition = null, $order_by = null, $cols = null, $distinct = false)
 {
     // Connect to the database
     $conn = connect();
 
     // Build the query
     if ($distinct) {
+        // if distinct then no paranthesis
         $columns = $cols ? $cols : "*";
     } else {
+        // if not distinct then add paranthesis 
         $columns = $cols ? "(" . $cols . ")" : "*";
     }
 
@@ -31,30 +30,30 @@ function fetchAll($table, $condition = null, $cols = null, $distinct = false, $p
         $query .= " WHERE " . $condition;
     }
 
-    // Prepare and execute the query
-    $stmt = mysqli_prepare($conn, $query);
-    if (!$stmt) {
-        throw new Exception("Query preparation failed: " . mysqli_error($conn));
+    if ($order_by) {
+        $query .= " ORDER BY " . $order_by;
     }
 
-    if ($params) {
-        $types = str_repeat('s', count($params));
-        mysqli_stmt_bind_param($stmt, $types, ...$params);
+    // Execute the query
+    $result = mysqli_query($conn, $query);
+    if (!$result) {
+        die("query failed: " . mysqli_error($conn));
     }
-
-    if (!mysqli_stmt_execute($stmt)) {
-        throw new Exception("Query execution failed: " . mysqli_error($conn));
+    if (mysqli_num_rows($result) === 0) {
+        return 0;
     }
 
     // Fetch the data
-    $data = mysqli_stmt_get_result($stmt)->fetch_all(MYSQLI_ASSOC);
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    // count the number of rows in the data array
+    $num_rows = count($data);
 
     // Close the connection
-    mysqli_stmt_close($stmt);
     mysqli_close($conn);
 
     // Return the data and the number of rows
-    return array("data" => $data, "num_rows" => count($data));
+    return $data;
 }
+
 
 ?>

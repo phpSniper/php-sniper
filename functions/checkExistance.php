@@ -1,10 +1,16 @@
 <?php
 
 
-
-// check if a particular value exist in a particular table
-
-function existance($table, $condition)
+/**
+ * Checks if a row exists in a table based on the specified condition.
+ *
+ * @param string $table The name of the database table.
+ * @param string $condition The WHERE condition for the query.
+ *
+ * @return bool True if the row exists, false otherwise.
+ * @throws Exception If the query fails to execute.
+ */
+function rowExists($table, $condition)
 {
     $conn = connect();
     $details = "SELECT * FROM $table WHERE $condition";
