@@ -60,3 +60,10 @@ if ($inserted) {
 - `search($data, $query)` - Search for a string in data
 - `getInfo($table, $condition, $cols = null)` - Retrieve complete row information from a database table.
 
+
+---
+
+**phpSniper** is open source software released under the [MIT license](https://opensource.org/licenses/MIT).
+
+© [Suraj Muhammad](mailto:soorajwizard01@gmail.com)
+
