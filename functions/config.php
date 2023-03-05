@@ -8,10 +8,10 @@
 function connect()
 {
     // Replace these credentials with your own
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "donya";
+    $host = "Your_host_name";
+    $user = "Your_username";
+    $pass = "Your_password";
+    $db = "your_database_name";
 
     // Create a connection object
     $conn = mysqli_connect($host, $user, $pass, $db);

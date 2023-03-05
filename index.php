@@ -2,9 +2,8 @@
 
 include "./sniper.php";
 
+$allUsers = fetchAll("users");
 
-$alladmins = countRows("admins");
-
-echo $alladmins;
+print_r($allUsers);
 
 ?>
