@@ -33,11 +33,30 @@ foreach ($rows as $row) {
 ## You can also use the `insert` function to insert data into a table:
 
 ```php
-
 include 'path/to/sniper.php';
-$inserted = insert('users', 'name, email', "'John Doe', 'johndoe@example.com'");
+
+$table = 'users';
+$columns = 'name, email';
+$values = "'John Doe', 'johndoe@example.com'";
+
+$inserted = insert($table, $columns, $values);
+
 if ($inserted) {
     echo "Data inserted successfully!";
 } else {
     echo "Failed to insert data!";
 }
+
+```
+
+## Function List
+
+- `connect()` - Establish a database connection
+- `closeConnection()` - Close the database connection
+- `insert($table, $cols, $values)` - Insert data into a database table
+- `updateRow($table, $colsAndValues, $conditions)` - Update multiple columns and values in a database table
+- `updateCol($table, $col, $value, $key, $id)` - Update a single column value in a database table
+- `delete($table, $condition)` - Delete row(s) from a database table based on a condition
+- `search($data, $query)` - Search for a string in data
+- `getInfo($table, $condition, $cols = null)` - Retrieve complete row information from a database table.
+
