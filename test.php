@@ -2,7 +2,7 @@
 
 include "./sniper.php";
 
-$allUsers = fetchAll("users");
+$allUsers = selectAll("users");
 
 print_r($allUsers);
 

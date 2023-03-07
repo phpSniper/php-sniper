@@ -6,9 +6,9 @@
  *
  * @param string $table The name of the table to fetch from.
  * @param string|null $condition The condition that rows must match (optional).
+ * @param string|null $order_by The column to order the results by and the order method (optional).
  * @param string|null $cols The columns to select (optional).
  * @param bool $distinct Whether to select distinct rows (optional, default false).
- * @param string|null $order_by The column to order the results by and the order method (optional).
  * @return array An array containing the fetched data and the number of rows.
  */
 function selectAll($table, $condition = null, $order_by = null, $cols = null, $distinct = false)
