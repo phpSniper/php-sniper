@@ -11,7 +11,7 @@
  *
  * @return array|null The associative array representing the row, or null if no matching row was found
  */
-function getRow(string $tableName, string $condition, string $columns = null): ?array
+function selectRow(string $tableName, string $condition, string $columns = null): ?array
 {
     $conn = connect();
 

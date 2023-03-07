@@ -8,7 +8,7 @@
  * @param string $conditions The conditions that rows must match to be updated in the format "col1=value1 AND col2=value2 AND ...".
  * @return bool True if the update query was successful, false otherwise.
  */
-function updateDatabaseRows(string $table, string $newValues, string $conditions): bool
+function updateRow(string $table, string $newValues, string $conditions): bool
 {
     $conn = connect();
     $updateQuery = "UPDATE $table SET $newValues WHERE $conditions";

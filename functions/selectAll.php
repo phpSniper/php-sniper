@@ -11,7 +11,7 @@
  * @param string|null $order_by The column to order the results by and the order method (optional).
  * @return array An array containing the fetched data and the number of rows.
  */
-function fetchAll($table, $condition = null, $order_by = null, $cols = null, $distinct = false)
+function selectAll($table, $condition = null, $order_by = null, $cols = null, $distinct = false)
 {
     // Connect to the database
     $conn = connect();
