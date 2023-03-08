@@ -65,4 +65,4 @@ if ($inserted) {
 
 **phpSniper** is open source software released under the [MIT license](https://opensource.org/licenses/MIT).
 
-© [Suraj Muhammad](mailto:soorajwizard01@gmail.com)
+© [PHP Sniper](https://web-php-sniper.vercel.app)
