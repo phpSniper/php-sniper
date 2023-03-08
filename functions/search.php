@@ -7,7 +7,7 @@
  * @param string $query The query string to search for.
  * @return bool True if all query characters are found in the data string, false otherwise.
  */
-function stringContainsQueryChars($data, $query)
+function search($data, $query)
 {
     $char = str_split($query);
     $length = sizeof($char) - 1;
