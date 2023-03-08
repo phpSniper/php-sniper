@@ -9,7 +9,7 @@
  *
  * @return array|integer An array of expired events, or 0 if there are no expired events.
  */
-function getExpiredEventsArray($data, $dateColumn)
+function getExpiredEvents($data, $dateColumn)
 {
     $filteredEvents = [];
     foreach ($data as $event) {
