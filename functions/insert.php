@@ -1,5 +1,11 @@
 <?php
 
+function prepareColumnsForInsert($columns) {
+    $columnStr = implode(",", $columns);
+    $columnStr = "'".str_replace(",", "','", $columnStr)."'";
+    return $columnStr;
+    
+  }
 
 /**
  * Insert data into a database table
@@ -10,10 +16,16 @@
  *
  * @return bool Returns true if data is inserted successfully, false otherwise
  */
+   
 function insertData($table, $cols, $values)
 {
     // Connect to the database
     $conn = connect();
+
+      // check if its an array type to arrange correctly
+      if (is_array($values)) {
+        $values = prepareColumnsForInsert($values);
+    }
 
     // Construct the insertion query
     $query = "INSERT INTO $table ($cols) VALUES ($values)";
