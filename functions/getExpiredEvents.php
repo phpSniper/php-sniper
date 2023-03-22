@@ -6,14 +6,20 @@
  *
  * @param array $data An array of events to filter.
  * @param string $dateColumn The column containing the event date.
+ * @param string $timeColumn the column containg the event time its optional.
  *
  * @return array|integer An array of expired events, or 0 if there are no expired events.
  */
-function getExpiredEvents($data, $dateColumn)
+function getExpiredEvents($data, $dateColumn, $timeColumn = null)
 {
     $filteredEvents = [];
     foreach ($data as $event) {
-        if (strtotime($event[$dateColumn]) < time()) {
+        $dateTime = $event[$dateColumn];
+        if ($timeColumn !== null) {
+            $dateTime .= ' ' . $event[$timeColumn];
+        }
+
+        if (strtotime($dateTime) < time()) {
             array_push($filteredEvents, $event);
         }
     }
@@ -23,7 +29,6 @@ function getExpiredEvents($data, $dateColumn)
     }
     return $filteredEvents;
 }
-
 
 
 ?>
