@@ -40,7 +40,7 @@ function selectAll($table, $condition = null, $order_by = null, $cols = null, $d
         die("query failed: " . mysqli_error($conn));
     }
     if (mysqli_num_rows($result) === 0) {
-        return 0;
+        return [];
     }
 
     // Fetch the data
