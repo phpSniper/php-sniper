@@ -10,7 +10,7 @@
  * 
  * @return bool True if the delete was successful, false otherwise
  */
-function deleteRow($table, $condition)
+function delete($table, $condition)
 {
     // Connect to the database
     $conn = connect();
