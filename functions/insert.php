@@ -17,7 +17,7 @@ function prepareColumnsForInsert($columns) {
  * @return bool Returns true if data is inserted successfully, false otherwise
  */
    
-function insertData($table, $cols, $values)
+function insert($table, $cols, $values)
 {
     // Connect to the database
     $conn = connect();

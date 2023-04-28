@@ -16,7 +16,7 @@ function selectRow(string $tableName, string $condition, string $columns = null)
     $conn = connect();
 
     // Use the specified columns or retrieve all columns by default
-    $selectedColumns = $columns ? "(" . $columns . ")" : "*";
+    $selectedColumns = $columns ?  $columns  : "*";
 
     // Construct the query to retrieve the row information
     $query = "SELECT " . $selectedColumns . " FROM " . $tableName . " WHERE " . $condition;

@@ -6,7 +6,6 @@ include "./functions/selectAll.php";
 include "./functions/selectRow.php";
 include "./functions/deleteRow.php";
 include "./functions/updateRow.php";
-include "./functions/updateSingleColumn.php";
 include "./functions/checkExistance.php";
 include "./functions/currencyFormat.php";
 include "./functions/getDaysBetweenDates.php";
