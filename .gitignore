@@ -1,0 +1,33 @@
+# Composer
+/vendor/
+composer.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# PHPUnit
+.phpunit.result.cache
+.phpunit.cache/
+
+# PHPStan
+phpstan-baseline.neon
+
+# PHP-CS-Fixer
+.php-cs-fixer.cache
+
+# Build artifacts
+/build/
+/coverage/
